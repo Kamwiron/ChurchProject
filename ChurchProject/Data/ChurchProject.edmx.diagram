@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7586018305d84b1e9c5339f850ca0c70" Name="Diagram1">
+        <EntityTypeShape EntityType="ChurchProjectModel.Attendance" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.AttendanceType" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.MaritalStatu" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.Member" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.MemberChild" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.MembershipStatu" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.MemberType" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.MemberZoneDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.Occupation" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.Title" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.Town" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.Zone" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.ZoneDetail" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChurchProjectModel.ZoneHead" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <AssociationConnector Association="ChurchProjectModel.FK_Attendance_AttendanceType" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_Attendance_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_Member_MaritalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_Member_MembershipStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_Member_MemberType" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_Member_Occupation" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_Member_Occupation1" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_Member_Title" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_MemberChild_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_MemberZoneDetail_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_MemberZoneDetail_ZoneDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_ZoneDetail_Town" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_ZoneDetail_Zone" ManuallyRouted="false" />
+        <AssociationConnector Association="ChurchProjectModel.FK_ZoneDetail_ZoneHead" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

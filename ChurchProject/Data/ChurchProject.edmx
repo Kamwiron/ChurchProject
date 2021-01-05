@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ChurchProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="AttendanceId" />
+          </Key>
+          <Property Name="AttendanceTypeId" Type="int" Nullable="false" />
+          <Property Name="AttendanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="MemberId" Type="int" />
+        </EntityType>
+        <EntityType Name="AttendanceType">
+          <Key>
+            <PropertyRef Name="AttendanceTypeId" />
+          </Key>
+          <Property Name="AttendanceTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaritalStatus">
+          <Key>
+            <PropertyRef Name="MaritalStatusId" />
+          </Key>
+          <Property Name="MaritalStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="TitleId" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OtherName" Type="varchar" MaxLength="50" />
+          <Property Name="PrefferedName" Type="varchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Gender" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="HomeAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CellPhone" Type="varchar" MaxLength="50" />
+          <Property Name="WorkPhone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="OccupationId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="50" />
+          <Property Name="MembershipStatusId" Type="int" Nullable="false" />
+          <Property Name="BaptismDate" Type="date" />
+          <Property Name="MaritalStatusId" Type="int" Nullable="false" />
+          <Property Name="WeddingDate" Type="date" />
+          <Property Name="SpouseName" Type="varchar" MaxLength="50" />
+          <Property Name="NumberOFChildren" Type="int" />
+          <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpouseOccupationId" Type="int" Nullable="false" />
+          <Property Name="SpouseMembershipStatus" Type="varchar" MaxLength="50" />
+          <Property Name="MemberTypeId" Type="int" Nullable="false" />
+          <Property Name="SpouseAge" Type="int" />
+        </EntityType>
+        <EntityType Name="MemberChild">
+          <Key>
+            <PropertyRef Name="MemberChildId" />
+          </Key>
+          <Property Name="MemberChildId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="MemberId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MembershipStatus">
+          <Key>
+            <PropertyRef Name="MembershipStatusId" />
+          </Key>
+          <Property Name="MembershipStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberType">
+          <Key>
+            <PropertyRef Name="MemberTypeId" />
+          </Key>
+          <Property Name="MemberTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberZoneDetail">
+          <Key>
+            <PropertyRef Name="MemberZoneDetailId" />
+          </Key>
+          <Property Name="MemberId" Type="int" Nullable="false" />
+          <Property Name="ZoneDetailId" Type="int" Nullable="false" />
+          <Property Name="MemberZoneDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Occupation">
+          <Key>
+            <PropertyRef Name="OccupationId" />
+          </Key>
+          <Property Name="OccupationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="TitleId" />
+          </Key>
+          <Property Name="TitleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="TownId" />
+          </Key>
+          <Property Name="TownId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ZoneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZoneDetail">
+          <Key>
+            <PropertyRef Name="ZoneDetailId" />
+          </Key>
+          <Property Name="ZoneId" Type="int" Nullable="false" />
+          <Property Name="TownId" Type="int" Nullable="false" />
+          <Property Name="ZoneDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZoneHeadId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZoneHead">
+          <Key>
+            <PropertyRef Name="ZoneHeadId" />
+          </Key>
+          <Property Name="ZoneHeadId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Attendance_AttendanceType">
+          <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttendanceType">
+              <PropertyRef Name="AttendanceTypeId" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="AttendanceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_MaritalStatus">
+          <End Role="MaritalStatus" Type="Self.MaritalStatus" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaritalStatus">
+              <PropertyRef Name="MaritalStatusId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="MaritalStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_MembershipStatus">
+          <End Role="MembershipStatus" Type="Self.MembershipStatus" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MembershipStatus">
+              <PropertyRef Name="MembershipStatusId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="MembershipStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_MemberType">
+          <End Role="MemberType" Type="Self.MemberType" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberType">
+              <PropertyRef Name="MemberTypeId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="MemberTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Occupation">
+          <End Role="Occupation" Type="Self.Occupation" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Occupation">
+              <PropertyRef Name="OccupationId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="SpouseOccupationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Occupation1">
+          <End Role="Occupation" Type="Self.Occupation" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Occupation">
+              <PropertyRef Name="OccupationId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="OccupationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Title">
+          <End Role="Title" Type="Self.Title" Multiplicity="0..1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="TitleId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="TitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberChild_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberChild" Type="Self.MemberChild" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="MemberChild">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberZoneDetail_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberZoneDetail" Type="Self.MemberZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="MemberZoneDetail">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberZoneDetail_ZoneDetail">
+          <End Role="ZoneDetail" Type="Self.ZoneDetail" Multiplicity="1" />
+          <End Role="MemberZoneDetail" Type="Self.MemberZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZoneDetail">
+              <PropertyRef Name="ZoneDetailId" />
+            </Principal>
+            <Dependent Role="MemberZoneDetail">
+              <PropertyRef Name="ZoneDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneDetail_Town">
+          <End Role="Town" Type="Self.Town" Multiplicity="1" />
+          <End Role="ZoneDetail" Type="Self.ZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="TownId" />
+            </Principal>
+            <Dependent Role="ZoneDetail">
+              <PropertyRef Name="TownId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneDetail_Zone">
+          <End Role="Zone" Type="Self.Zone" Multiplicity="1" />
+          <End Role="ZoneDetail" Type="Self.ZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="ZoneId" />
+            </Principal>
+            <Dependent Role="ZoneDetail">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneDetail_ZoneHead">
+          <End Role="ZoneHead" Type="Self.ZoneHead" Multiplicity="1" />
+          <End Role="ZoneDetail" Type="Self.ZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZoneHead">
+              <PropertyRef Name="ZoneHeadId" />
+            </Principal>
+            <Dependent Role="ZoneDetail">
+              <PropertyRef Name="ZoneHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ChurchProjectModelStoreContainer">
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendanceType" EntityType="Self.AttendanceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberChild" EntityType="Self.MemberChild" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MembershipStatus" EntityType="Self.MembershipStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberType" EntityType="Self.MemberType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberZoneDetail" EntityType="Self.MemberZoneDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Occupation" EntityType="Self.Occupation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Title" EntityType="Self.Title" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Town" EntityType="Self.Town" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zone" EntityType="Self.Zone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZoneDetail" EntityType="Self.ZoneDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZoneHead" EntityType="Self.ZoneHead" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attendance_AttendanceType" Association="Self.FK_Attendance_AttendanceType">
+            <End Role="AttendanceType" EntitySet="AttendanceType" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Member" Association="Self.FK_Attendance_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_MaritalStatus" Association="Self.FK_Member_MaritalStatus">
+            <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_MembershipStatus" Association="Self.FK_Member_MembershipStatus">
+            <End Role="MembershipStatus" EntitySet="MembershipStatus" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_MemberType" Association="Self.FK_Member_MemberType">
+            <End Role="MemberType" EntitySet="MemberType" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Occupation" Association="Self.FK_Member_Occupation">
+            <End Role="Occupation" EntitySet="Occupation" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Occupation1" Association="Self.FK_Member_Occupation1">
+            <End Role="Occupation" EntitySet="Occupation" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Title" Association="Self.FK_Member_Title">
+            <End Role="Title" EntitySet="Title" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberChild_Member" Association="Self.FK_MemberChild_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberChild" EntitySet="MemberChild" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberZoneDetail_Member" Association="Self.FK_MemberZoneDetail_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberZoneDetail" EntitySet="MemberZoneDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberZoneDetail_ZoneDetail" Association="Self.FK_MemberZoneDetail_ZoneDetail">
+            <End Role="ZoneDetail" EntitySet="ZoneDetail" />
+            <End Role="MemberZoneDetail" EntitySet="MemberZoneDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneDetail_Town" Association="Self.FK_ZoneDetail_Town">
+            <End Role="Town" EntitySet="Town" />
+            <End Role="ZoneDetail" EntitySet="ZoneDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneDetail_Zone" Association="Self.FK_ZoneDetail_Zone">
+            <End Role="Zone" EntitySet="Zone" />
+            <End Role="ZoneDetail" EntitySet="ZoneDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneDetail_ZoneHead" Association="Self.FK_ZoneDetail_ZoneHead">
+            <End Role="ZoneHead" EntitySet="ZoneHead" />
+            <End Role="ZoneDetail" EntitySet="ZoneDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ChurchProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="AttendanceId" />
+          </Key>
+          <Property Name="AttendanceTypeId" Type="Int32" Nullable="false" />
+          <Property Name="AttendanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MemberId" Type="Int32" />
+          <NavigationProperty Name="AttendanceType" Relationship="Self.FK_Attendance_AttendanceType" FromRole="Attendance" ToRole="AttendanceType" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_Attendance_Member" FromRole="Attendance" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="AttendanceType">
+          <Key>
+            <PropertyRef Name="AttendanceTypeId" />
+          </Key>
+          <Property Name="AttendanceTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_AttendanceType" FromRole="AttendanceType" ToRole="Attendance" />
+        </EntityType>
+        <EntityType Name="MaritalStatu">
+          <Key>
+            <PropertyRef Name="MaritalStatusId" />
+          </Key>
+          <Property Name="MaritalStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Member_MaritalStatus" FromRole="MaritalStatus" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="TitleId" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OtherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PrefferedName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HomeAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorkPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OccupationId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MembershipStatusId" Type="Int32" Nullable="false" />
+          <Property Name="BaptismDate" Type="DateTime" Precision="0" />
+          <Property Name="MaritalStatusId" Type="Int32" Nullable="false" />
+          <Property Name="WeddingDate" Type="DateTime" Precision="0" />
+          <Property Name="SpouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOFChildren" Type="Int32" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpouseOccupationId" Type="Int32" Nullable="false" />
+          <Property Name="SpouseMembershipStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberTypeId" Type="Int32" Nullable="false" />
+          <Property Name="SpouseAge" Type="Int32" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_Member" FromRole="Member" ToRole="Attendance" />
+          <NavigationProperty Name="MaritalStatu" Relationship="Self.FK_Member_MaritalStatus" FromRole="Member" ToRole="MaritalStatus" />
+          <NavigationProperty Name="MembershipStatu" Relationship="Self.FK_Member_MembershipStatus" FromRole="Member" ToRole="MembershipStatus" />
+          <NavigationProperty Name="MemberType" Relationship="Self.FK_Member_MemberType" FromRole="Member" ToRole="MemberType" />
+          <NavigationProperty Name="Occupation" Relationship="Self.FK_Member_Occupation" FromRole="Member" ToRole="Occupation" />
+          <NavigationProperty Name="Occupation1" Relationship="Self.FK_Member_Occupation1" FromRole="Member" ToRole="Occupation" />
+          <NavigationProperty Name="Title" Relationship="Self.FK_Member_Title" FromRole="Member" ToRole="Title" />
+          <NavigationProperty Name="MemberChilds" Relationship="Self.FK_MemberChild_Member" FromRole="Member" ToRole="MemberChild" />
+          <NavigationProperty Name="MemberZoneDetails" Relationship="Self.FK_MemberZoneDetail_Member" FromRole="Member" ToRole="MemberZoneDetail" />
+        </EntityType>
+        <EntityType Name="MemberChild">
+          <Key>
+            <PropertyRef Name="MemberChildId" />
+          </Key>
+          <Property Name="MemberChildId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberChild_Member" FromRole="MemberChild" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="MembershipStatu">
+          <Key>
+            <PropertyRef Name="MembershipStatusId" />
+          </Key>
+          <Property Name="MembershipStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Member_MembershipStatus" FromRole="MembershipStatus" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="MemberType">
+          <Key>
+            <PropertyRef Name="MemberTypeId" />
+          </Key>
+          <Property Name="MemberTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Member_MemberType" FromRole="MemberType" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="MemberZoneDetail">
+          <Key>
+            <PropertyRef Name="MemberZoneDetailId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="ZoneDetailId" Type="Int32" Nullable="false" />
+          <Property Name="MemberZoneDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Member" Relationship="Self.FK_MemberZoneDetail_Member" FromRole="MemberZoneDetail" ToRole="Member" />
+          <NavigationProperty Name="ZoneDetail" Relationship="Self.FK_MemberZoneDetail_ZoneDetail" FromRole="MemberZoneDetail" ToRole="ZoneDetail" />
+        </EntityType>
+        <EntityType Name="Occupation">
+          <Key>
+            <PropertyRef Name="OccupationId" />
+          </Key>
+          <Property Name="OccupationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Member_Occupation" FromRole="Occupation" ToRole="Member" />
+          <NavigationProperty Name="Members1" Relationship="Self.FK_Member_Occupation1" FromRole="Occupation" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="TitleId" />
+          </Key>
+          <Property Name="TitleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Member_Title" FromRole="Title" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="TownId" />
+          </Key>
+          <Property Name="TownId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ZoneDetails" Relationship="Self.FK_ZoneDetail_Town" FromRole="Town" ToRole="ZoneDetail" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="ZoneId" />
+          </Key>
+          <Property Name="ZoneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ZoneDetails" Relationship="Self.FK_ZoneDetail_Zone" FromRole="Zone" ToRole="ZoneDetail" />
+        </EntityType>
+        <EntityType Name="ZoneDetail">
+          <Key>
+            <PropertyRef Name="ZoneDetailId" />
+          </Key>
+          <Property Name="ZoneId" Type="Int32" Nullable="false" />
+          <Property Name="TownId" Type="Int32" Nullable="false" />
+          <Property Name="ZoneDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZoneHeadId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MemberZoneDetails" Relationship="Self.FK_MemberZoneDetail_ZoneDetail" FromRole="ZoneDetail" ToRole="MemberZoneDetail" />
+          <NavigationProperty Name="Town" Relationship="Self.FK_ZoneDetail_Town" FromRole="ZoneDetail" ToRole="Town" />
+          <NavigationProperty Name="Zone" Relationship="Self.FK_ZoneDetail_Zone" FromRole="ZoneDetail" ToRole="Zone" />
+          <NavigationProperty Name="ZoneHead" Relationship="Self.FK_ZoneDetail_ZoneHead" FromRole="ZoneDetail" ToRole="ZoneHead" />
+        </EntityType>
+        <EntityType Name="ZoneHead">
+          <Key>
+            <PropertyRef Name="ZoneHeadId" />
+          </Key>
+          <Property Name="ZoneHeadId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ZoneDetails" Relationship="Self.FK_ZoneDetail_ZoneHead" FromRole="ZoneHead" ToRole="ZoneDetail" />
+        </EntityType>
+        <Association Name="FK_Attendance_AttendanceType">
+          <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttendanceType">
+              <PropertyRef Name="AttendanceTypeId" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="AttendanceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_MaritalStatus">
+          <End Role="MaritalStatus" Type="Self.MaritalStatu" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaritalStatus">
+              <PropertyRef Name="MaritalStatusId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="MaritalStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_MembershipStatus">
+          <End Role="MembershipStatus" Type="Self.MembershipStatu" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MembershipStatus">
+              <PropertyRef Name="MembershipStatusId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="MembershipStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_MemberType">
+          <End Role="MemberType" Type="Self.MemberType" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberType">
+              <PropertyRef Name="MemberTypeId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="MemberTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Occupation">
+          <End Role="Occupation" Type="Self.Occupation" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Occupation">
+              <PropertyRef Name="OccupationId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="SpouseOccupationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Occupation1">
+          <End Role="Occupation" Type="Self.Occupation" Multiplicity="1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Occupation">
+              <PropertyRef Name="OccupationId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="OccupationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_Title">
+          <End Role="Title" Type="Self.Title" Multiplicity="0..1" />
+          <End Role="Member" Type="Self.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="TitleId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="TitleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberChild_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberChild" Type="Self.MemberChild" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="MemberChild">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberZoneDetail_Member">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="MemberZoneDetail" Type="Self.MemberZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="MemberZoneDetail">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberZoneDetail_ZoneDetail">
+          <End Role="ZoneDetail" Type="Self.ZoneDetail" Multiplicity="1" />
+          <End Role="MemberZoneDetail" Type="Self.MemberZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZoneDetail">
+              <PropertyRef Name="ZoneDetailId" />
+            </Principal>
+            <Dependent Role="MemberZoneDetail">
+              <PropertyRef Name="ZoneDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneDetail_Town">
+          <End Role="Town" Type="Self.Town" Multiplicity="1" />
+          <End Role="ZoneDetail" Type="Self.ZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="TownId" />
+            </Principal>
+            <Dependent Role="ZoneDetail">
+              <PropertyRef Name="TownId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneDetail_Zone">
+          <End Role="Zone" Type="Self.Zone" Multiplicity="1" />
+          <End Role="ZoneDetail" Type="Self.ZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="ZoneId" />
+            </Principal>
+            <Dependent Role="ZoneDetail">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneDetail_ZoneHead">
+          <End Role="ZoneHead" Type="Self.ZoneHead" Multiplicity="1" />
+          <End Role="ZoneDetail" Type="Self.ZoneDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZoneHead">
+              <PropertyRef Name="ZoneHeadId" />
+            </Principal>
+            <Dependent Role="ZoneDetail">
+              <PropertyRef Name="ZoneHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ChurchProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+          <EntitySet Name="AttendanceTypes" EntityType="Self.AttendanceType" />
+          <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatu" />
+          <EntitySet Name="Members" EntityType="Self.Member" />
+          <EntitySet Name="MemberChilds" EntityType="Self.MemberChild" />
+          <EntitySet Name="MembershipStatus" EntityType="Self.MembershipStatu" />
+          <EntitySet Name="MemberTypes" EntityType="Self.MemberType" />
+          <EntitySet Name="MemberZoneDetails" EntityType="Self.MemberZoneDetail" />
+          <EntitySet Name="Occupations" EntityType="Self.Occupation" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Titles" EntityType="Self.Title" />
+          <EntitySet Name="Towns" EntityType="Self.Town" />
+          <EntitySet Name="Zones" EntityType="Self.Zone" />
+          <EntitySet Name="ZoneDetails" EntityType="Self.ZoneDetail" />
+          <EntitySet Name="ZoneHeads" EntityType="Self.ZoneHead" />
+          <AssociationSet Name="FK_Attendance_AttendanceType" Association="Self.FK_Attendance_AttendanceType">
+            <End Role="AttendanceType" EntitySet="AttendanceTypes" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Member" Association="Self.FK_Attendance_Member">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_MaritalStatus" Association="Self.FK_Member_MaritalStatus">
+            <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_MembershipStatus" Association="Self.FK_Member_MembershipStatus">
+            <End Role="MembershipStatus" EntitySet="MembershipStatus" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_MemberType" Association="Self.FK_Member_MemberType">
+            <End Role="MemberType" EntitySet="MemberTypes" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Occupation" Association="Self.FK_Member_Occupation">
+            <End Role="Occupation" EntitySet="Occupations" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Occupation1" Association="Self.FK_Member_Occupation1">
+            <End Role="Occupation" EntitySet="Occupations" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Title" Association="Self.FK_Member_Title">
+            <End Role="Title" EntitySet="Titles" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberChild_Member" Association="Self.FK_MemberChild_Member">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="MemberChild" EntitySet="MemberChilds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberZoneDetail_Member" Association="Self.FK_MemberZoneDetail_Member">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="MemberZoneDetail" EntitySet="MemberZoneDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberZoneDetail_ZoneDetail" Association="Self.FK_MemberZoneDetail_ZoneDetail">
+            <End Role="ZoneDetail" EntitySet="ZoneDetails" />
+            <End Role="MemberZoneDetail" EntitySet="MemberZoneDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneDetail_Town" Association="Self.FK_ZoneDetail_Town">
+            <End Role="Town" EntitySet="Towns" />
+            <End Role="ZoneDetail" EntitySet="ZoneDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneDetail_Zone" Association="Self.FK_ZoneDetail_Zone">
+            <End Role="Zone" EntitySet="Zones" />
+            <End Role="ZoneDetail" EntitySet="ZoneDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneDetail_ZoneHead" Association="Self.FK_ZoneDetail_ZoneHead">
+            <End Role="ZoneHead" EntitySet="ZoneHeads" />
+            <End Role="ZoneDetail" EntitySet="ZoneDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ChurchProjectModelStoreContainer" CdmEntityContainer="ChurchProjectEntities">
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="ChurchProjectModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="AttendanceTypeId" ColumnName="AttendanceTypeId" />
+                <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceTypes">
+            <EntityTypeMapping TypeName="ChurchProjectModel.AttendanceType">
+              <MappingFragment StoreEntitySet="AttendanceType">
+                <ScalarProperty Name="AttendanceTypeId" ColumnName="AttendanceTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaritalStatus">
+            <EntityTypeMapping TypeName="ChurchProjectModel.MaritalStatu">
+              <MappingFragment StoreEntitySet="MaritalStatus">
+                <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="ChurchProjectModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="OtherName" ColumnName="OtherName" />
+                <ScalarProperty Name="PrefferedName" ColumnName="PrefferedName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+                <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OccupationId" ColumnName="OccupationId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="MembershipStatusId" ColumnName="MembershipStatusId" />
+                <ScalarProperty Name="BaptismDate" ColumnName="BaptismDate" />
+                <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+                <ScalarProperty Name="WeddingDate" ColumnName="WeddingDate" />
+                <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
+                <ScalarProperty Name="NumberOFChildren" ColumnName="NumberOFChildren" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="SpouseOccupationId" ColumnName="SpouseOccupationId" />
+                <ScalarProperty Name="SpouseMembershipStatus" ColumnName="SpouseMembershipStatus" />
+                <ScalarProperty Name="MemberTypeId" ColumnName="MemberTypeId" />
+                <ScalarProperty Name="SpouseAge" ColumnName="SpouseAge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberChilds">
+            <EntityTypeMapping TypeName="ChurchProjectModel.MemberChild">
+              <MappingFragment StoreEntitySet="MemberChild">
+                <ScalarProperty Name="MemberChildId" ColumnName="MemberChildId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MembershipStatus">
+            <EntityTypeMapping TypeName="ChurchProjectModel.MembershipStatu">
+              <MappingFragment StoreEntitySet="MembershipStatus">
+                <ScalarProperty Name="MembershipStatusId" ColumnName="MembershipStatusId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberTypes">
+            <EntityTypeMapping TypeName="ChurchProjectModel.MemberType">
+              <MappingFragment StoreEntitySet="MemberType">
+                <ScalarProperty Name="MemberTypeId" ColumnName="MemberTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberZoneDetails">
+            <EntityTypeMapping TypeName="ChurchProjectModel.MemberZoneDetail">
+              <MappingFragment StoreEntitySet="MemberZoneDetail">
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="ZoneDetailId" ColumnName="ZoneDetailId" />
+                <ScalarProperty Name="MemberZoneDetailId" ColumnName="MemberZoneDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Occupations">
+            <EntityTypeMapping TypeName="ChurchProjectModel.Occupation">
+              <MappingFragment StoreEntitySet="Occupation">
+                <ScalarProperty Name="OccupationId" ColumnName="OccupationId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ChurchProjectModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titles">
+            <EntityTypeMapping TypeName="ChurchProjectModel.Title">
+              <MappingFragment StoreEntitySet="Title">
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towns">
+            <EntityTypeMapping TypeName="ChurchProjectModel.Town">
+              <MappingFragment StoreEntitySet="Town">
+                <ScalarProperty Name="TownId" ColumnName="TownId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zones">
+            <EntityTypeMapping TypeName="ChurchProjectModel.Zone">
+              <MappingFragment StoreEntitySet="Zone">
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneDetails">
+            <EntityTypeMapping TypeName="ChurchProjectModel.ZoneDetail">
+              <MappingFragment StoreEntitySet="ZoneDetail">
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="TownId" ColumnName="TownId" />
+                <ScalarProperty Name="ZoneDetailId" ColumnName="ZoneDetailId" />
+                <ScalarProperty Name="ZoneHeadId" ColumnName="ZoneHeadId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZoneHeads">
+            <EntityTypeMapping TypeName="ChurchProjectModel.ZoneHead">
+              <MappingFragment StoreEntitySet="ZoneHead">
+                <ScalarProperty Name="ZoneHeadId" ColumnName="ZoneHeadId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

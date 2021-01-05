@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84E266C8-C3FC-432C-81D7-3E345191F133}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ChurchProject</RootNamespace>
+    <AssemblyName>ChurchProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>D:\Data\Desktop\windows application\contact directory app\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>D:\Data\Desktop\windows application\contact directory app\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Attendance.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AttendanceType.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChurchProject.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChurchProject.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChurchProject.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChurchProject.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChurchProject.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MaritalStatu.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Member.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MemberChild.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MembershipStatu.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MemberType.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MemberZoneDetail.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Occupation.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sysdiagram.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Title.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Town.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Zone.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ZoneDetail.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ZoneHead.cs">
+      <DependentUpon>ChurchProject.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashBoard\FormDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashBoard\FormDashBoard.Designer.cs">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegister\FormNewMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegister\FormNewMember.Designer.cs">
+      <DependentUpon>FormNewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegister\FrmMemberChild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegister\FrmMemberChild.Designer.cs">
+      <DependentUpon>FrmMemberChild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearch\FormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearch\FormSearch.Designer.cs">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn\FormSignInAndUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn\FormSignInAndUp.Designer.cs">
+      <DependentUpon>FormSignInAndUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AttendanceRepository.cs" />
+    <Compile Include="Repository\AttendanceTypeRepository.cs" />
+    <Compile Include="Repository\MaritalStatusRepository.cs" />
+    <Compile Include="Repository\MemberChildRepository.cs" />
+    <Compile Include="Repository\MemberRepository.cs" />
+    <Compile Include="Repository\MembershipStatusRepository.cs" />
+    <Compile Include="Repository\MemberTypeRepository.cs" />
+    <Compile Include="Repository\MemberZoneDetailsRepository.cs" />
+    <Compile Include="Repository\OccupationRepository.cs" />
+    <Compile Include="Repository\TitleRepository.cs" />
+    <Compile Include="Repository\TownRepository.cs" />
+    <Compile Include="Repository\ZoneDetailRepository.cs" />
+    <Compile Include="Repository\ZoneHeadRepository.cs" />
+    <Compile Include="Repository\ZoneRepository.cs" />
+    <Compile Include="Setting\FrmSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FrmSetup.Designer.cs">
+      <DependentUpon>FrmSetup.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormDashBoard\FormDashBoard.resx">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegister\FormNewMember.resx">
+      <DependentUpon>FormNewMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegister\FrmMemberChild.resx">
+      <DependentUpon>FrmMemberChild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearch\FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn\FormSignInAndUp.resx">
+      <DependentUpon>FormSignInAndUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Setting\FrmSetup.resx">
+      <DependentUpon>FrmSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Data\ChurchProject.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ChurchProject.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\ChurchProject.edmx.diagram">
+      <DependentUpon>ChurchProject.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Organic-Search-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person-transparent-icon-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loupe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flight-attendant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loupe %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-contacts-96 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-96 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\ChurchProject.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ChurchProject.Context.cs</LastGenOutput>
+      <DependentUpon>ChurchProject.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\ChurchProject.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ChurchProject.edmx</DependentUpon>
+      <LastGenOutput>ChurchProject.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
